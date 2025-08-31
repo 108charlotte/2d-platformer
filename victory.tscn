@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmxp0faqe2ca0"]
+
+[ext_resource type="Script" uid="uid://c3ec1gdhfyr4t" path="res://button.gd" id="1_7bnjr"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 644.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 402.0
+offset_top = 179.0
+offset_right = 567.0
+offset_bottom = 219.0
+scale = Vector2(2, 2)
+text = "Congrats! You won! "
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 318.0
+offset_right = 611.0
+offset_bottom = 349.0
+text = "Play Again? "
+script = ExtResource("1_7bnjr")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
