@@ -11,10 +11,12 @@ var curr_level = 1
 
 var level_1 = load("res://level_1.tscn").instantiate()
 var level_2 = load("res://level_2.tscn").instantiate()
+var level_3 = load("res://level_3.tscn").instantiate()
 
 func _ready(): 
 	area_2d.position = Vector2(2852.0, 247.0)
 	position = Vector2.ZERO
+	JUMP_VELOCITY = -800
 	visibility_notifier.screen_exited.connect(_on_VisibilityNotifier2D_screen_exited)
 	base_node.call_deferred("add_child", level_1)
 
@@ -54,6 +56,10 @@ func _go_to_next() -> void:
 		position = Vector2.ZERO
 		area_2d.position = Vector2(-1135.0, -1370.0)
 	elif curr_level == 3: 
-		get_tree().change_scene_to_file("res://level_3.tscn")
+		base_node.call_deferred("add_child", level_3)
+		base_node.remove_child(level_2)
+		JUMP_VELOCITY = -900
+		position = Vector2.ZERO
+		area_2d.position = Vector2(2330.0, -410)
 	else: 
 		get_tree().change_scene_to_file("res://victory.tscn")
